@@ -9,7 +9,8 @@ export const trythis = () => {
     .requestDevice({
       filters: [
         {
-          name: "GLM165-27CG x1857",
+          // name: "GLM165-27CG x1857",
+          id: "8Ps5NGSUSWEsB/UynBxNFQ==",
         },
       ],
       optionalServices: [controlServiceUUID],

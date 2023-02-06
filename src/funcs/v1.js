@@ -2,6 +2,7 @@ export const trythis = () => {
   const controlServiceUUID = "02a6c0f0-0451-4000-b000-fb3210111989";
   const commandCharacteristicUUID = "00001800-0000-1000-8000-00805f9b34fb"; // [READ]
   const commandCharacteristicUUID2 = "00002a0f-0000-1000-8000-00805f9b34fb"; // [READ, NOTIFY]
+  const value = "5555";
 
   console.log("Searching Bluetooth Device...");
 

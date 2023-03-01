@@ -7,12 +7,13 @@ export const trythis = () => {
 
   navigator.bluetooth
     .requestDevice({
-      filters: [
-        {
-          name: "GLM165-27CG x1857",
-          // id: "8Ps5NGSUSWEsB/UynBxNFQ==",
-        },
-      ],
+      // filters: [
+      //   {
+      //     // name: "GLM165-27CG x1857",
+      //     id: "8Ps5NGSUSWEsB/UynBxNFQ==",
+      //   },
+      // ],
+      acceptAllDevices: true,
       optionalServices: [controlServiceUUID],
     })
 

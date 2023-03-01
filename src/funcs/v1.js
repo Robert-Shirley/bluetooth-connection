@@ -9,16 +9,16 @@ export const trythis = () => {
     .requestDevice({
       filters: [
         {
-          // name: "GLM165-27CG x1857",
-          id: "8Ps5NGSUSWEsB/UynBxNFQ==",
+          name: "GLM165-27CG x1857",
+          // id: "8Ps5NGSUSWEsB/UynBxNFQ==",
         },
       ],
       optionalServices: [controlServiceUUID],
     })
 
     .then((device) => {
-      console.log("Got device name: ", device.name);
-      console.log("id: ", device.id);
+      // console.log("Got device name: ", device.name);
+      // console.log("id: ", device.id);
       return device.gatt.connect();
     })
 

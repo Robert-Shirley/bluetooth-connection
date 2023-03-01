@@ -18,8 +18,8 @@ export const trythis = () => {
     })
 
     .then((device) => {
-      console.log("Got device name: ", device.name);
-      console.log("id: ", device.id);
+      // console.log("Got device name: ", device.name);
+      // console.log("id: ", device.id);
       return device.gatt.connect();
     })
 

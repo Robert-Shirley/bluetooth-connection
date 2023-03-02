@@ -8,7 +8,12 @@ export const try3 = async (setsdlk) => {
 
   console.log("Searching Bluetooth Device...");
   const device = await navigator.bluetooth.requestDevice({
-    acceptAllDevices: true,
+    filters: [
+      {
+        name: "GLM165-27CG x6658",
+      },
+    ],
+    //acceptAllDevices: true,
     optionalServices: [
       "00001800-0000-1000-8000-00805f9b34fb",
       "00001801-0000-1000-8000-00805f9b34fb",
@@ -21,7 +26,7 @@ export const try3 = async (setsdlk) => {
   const server = await connect.getPrimaryServices();
   const decoder = new TextDecoder();
 
-  //console.log(server)
+  console.log(server[4]);
 
   for (const instanc of server) {
     //console.log(instanc);
@@ -45,11 +50,13 @@ export const try3 = async (setsdlk) => {
           // console.log(val);
           //val.oncharacteristicvaluechanged = test;
           val.addEventListener("characteristicvaluechanged", async (event) => {
+            //console.log(event.target.value, val, instanc);
             if (event.target.value.byteLength === 20) {
-              console.log(event.target.value);
-              const xxx = decoder.decode(event.target.value);
-              console.log(xxx);
-              setsdlk(xxx);
+              const buffer = event.target.value.buffer;
+              //console.log(buffer);
+              const dataView = new DataView(buffer);
+              const int32 = new Int32Array(buffer);
+              setsdlk(int32);
               //console.log(typeof event.target.value.buffer.getInt16());
             }
             // console.log(encc);
